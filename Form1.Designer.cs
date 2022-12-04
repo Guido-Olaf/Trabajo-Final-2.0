@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
+            this.btnBuscarFactura = new System.Windows.Forms.Button();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.nudCuit = new System.Windows.Forms.NumericUpDown();
             this.nudFactura = new System.Windows.Forms.NumericUpDown();
@@ -36,26 +37,25 @@
             this.lblCuit = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.gbDetalleCompra = new System.Windows.Forms.GroupBox();
+            this.btnCargarProducto = new System.Windows.Forms.Button();
             this.nudDescuento = new System.Windows.Forms.NumericUpDown();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudCodArticulo = new System.Windows.Forms.NumericUpDown();
             this.lblCodArticulo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFactura = new System.Windows.Forms.DataGridView();
             this.ColCodArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCargarProducto = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnBuscarFactura = new System.Windows.Forms.Button();
             this.btnBorrarProdcuto = new System.Windows.Forms.Button();
             this.btnModificarProducto = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -65,9 +65,9 @@
             this.gbDetalleCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDescuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCodArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosCliente
@@ -85,6 +85,15 @@
             this.gbDatosCliente.TabIndex = 0;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos del Cliente";
+            // 
+            // btnBuscarFactura
+            // 
+            this.btnBuscarFactura.Location = new System.Drawing.Point(665, 19);
+            this.btnBuscarFactura.Name = "btnBuscarFactura";
+            this.btnBuscarFactura.Size = new System.Drawing.Size(111, 43);
+            this.btnBuscarFactura.TabIndex = 16;
+            this.btnBuscarFactura.Text = "Buscar Factura";
+            this.btnBuscarFactura.UseVisualStyleBackColor = true;
             // 
             // txtRazonSocial
             // 
@@ -121,7 +130,7 @@
             0});
             this.nudFactura.Location = new System.Drawing.Point(475, 49);
             this.nudFactura.Maximum = new decimal(new int[] {
-            99999,
+            999999999,
             0,
             0,
             0});
@@ -167,11 +176,11 @@
             this.gbDetalleCompra.Controls.Add(this.lblDescuento);
             this.gbDetalleCompra.Controls.Add(this.nudCantidad);
             this.gbDetalleCompra.Controls.Add(this.lblCantidad);
-            this.gbDetalleCompra.Controls.Add(this.numericUpDown2);
+            this.gbDetalleCompra.Controls.Add(this.nudPrecio);
             this.gbDetalleCompra.Controls.Add(this.lblPrecio);
             this.gbDetalleCompra.Controls.Add(this.txtDescripcion);
             this.gbDetalleCompra.Controls.Add(this.lblDescripcion);
-            this.gbDetalleCompra.Controls.Add(this.numericUpDown1);
+            this.gbDetalleCompra.Controls.Add(this.nudCodArticulo);
             this.gbDetalleCompra.Controls.Add(this.lblCodArticulo);
             this.gbDetalleCompra.Location = new System.Drawing.Point(22, 110);
             this.gbDetalleCompra.Name = "gbDetalleCompra";
@@ -179,6 +188,16 @@
             this.gbDetalleCompra.TabIndex = 1;
             this.gbDetalleCompra.TabStop = false;
             this.gbDetalleCompra.Text = "Detalle de compra";
+            // 
+            // btnCargarProducto
+            // 
+            this.btnCargarProducto.Location = new System.Drawing.Point(665, 26);
+            this.btnCargarProducto.Name = "btnCargarProducto";
+            this.btnCargarProducto.Size = new System.Drawing.Size(111, 43);
+            this.btnCargarProducto.TabIndex = 15;
+            this.btnCargarProducto.Text = "Cargar Producto";
+            this.btnCargarProducto.UseVisualStyleBackColor = true;
+            this.btnCargarProducto.Click += new System.EventHandler(this.btnCargarProducto_Click);
             // 
             // nudDescuento
             // 
@@ -231,23 +250,23 @@
             this.lblCantidad.Text = "Cantidad:";
             this.lblCantidad.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // numericUpDown2
+            // nudPrecio
             // 
-            this.numericUpDown2.Increment = new decimal(new int[] {
+            this.nudPrecio.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.numericUpDown2.Location = new System.Drawing.Point(265, 50);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.nudPrecio.Location = new System.Drawing.Point(265, 50);
+            this.nudPrecio.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(116, 20);
-            this.numericUpDown2.TabIndex = 10;
-            this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.nudPrecio.Name = "nudPrecio";
+            this.nudPrecio.Size = new System.Drawing.Size(116, 20);
+            this.nudPrecio.TabIndex = 10;
+            this.nudPrecio.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // lblPrecio
             // 
@@ -277,23 +296,23 @@
             this.lblDescripcion.Text = "Descripcion:";
             this.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // numericUpDown1
+            // nudCodArticulo
             // 
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.nudCodArticulo.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(10, 50);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudCodArticulo.Location = new System.Drawing.Point(10, 50);
+            this.nudCodArticulo.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(116, 20);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.nudCodArticulo.Name = "nudCodArticulo";
+            this.nudCodArticulo.Size = new System.Drawing.Size(116, 20);
+            this.nudCodArticulo.TabIndex = 6;
+            this.nudCodArticulo.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // lblCodArticulo
             // 
@@ -305,20 +324,20 @@
             this.lblCodArticulo.Text = "Cod. Articulo:";
             this.lblCodArticulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dataGridView1
+            // dgvFactura
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColCodArticulo,
             this.ColDescripcion,
             this.ColPrecio,
             this.ColCantidad,
             this.ColDescuento,
             this.ColSubTotal});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 208);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(636, 296);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvFactura.Location = new System.Drawing.Point(22, 208);
+            this.dgvFactura.Name = "dgvFactura";
+            this.dgvFactura.Size = new System.Drawing.Size(636, 296);
+            this.dgvFactura.TabIndex = 2;
             // 
             // ColCodArticulo
             // 
@@ -350,15 +369,6 @@
             this.ColSubTotal.HeaderText = "SubTotal";
             this.ColSubTotal.Name = "ColSubTotal";
             // 
-            // btnCargarProducto
-            // 
-            this.btnCargarProducto.Location = new System.Drawing.Point(665, 26);
-            this.btnCargarProducto.Name = "btnCargarProducto";
-            this.btnCargarProducto.Size = new System.Drawing.Size(111, 43);
-            this.btnCargarProducto.TabIndex = 15;
-            this.btnCargarProducto.Text = "Cargar Producto";
-            this.btnCargarProducto.UseVisualStyleBackColor = true;
-            // 
             // btnImprimir
             // 
             this.btnImprimir.Location = new System.Drawing.Point(687, 385);
@@ -367,15 +377,6 @@
             this.btnImprimir.TabIndex = 16;
             this.btnImprimir.Text = "Imprimir Factura";
             this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarFactura
-            // 
-            this.btnBuscarFactura.Location = new System.Drawing.Point(665, 19);
-            this.btnBuscarFactura.Name = "btnBuscarFactura";
-            this.btnBuscarFactura.Size = new System.Drawing.Size(111, 43);
-            this.btnBuscarFactura.TabIndex = 16;
-            this.btnBuscarFactura.Text = "Buscar Factura";
-            this.btnBuscarFactura.UseVisualStyleBackColor = true;
             // 
             // btnBorrarProdcuto
             // 
@@ -403,6 +404,7 @@
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Form1
             // 
@@ -413,7 +415,7 @@
             this.Controls.Add(this.btnModificarProducto);
             this.Controls.Add(this.btnBorrarProdcuto);
             this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFactura);
             this.Controls.Add(this.gbDetalleCompra);
             this.Controls.Add(this.gbDatosCliente);
             this.Name = "Form1";
@@ -426,9 +428,9 @@
             this.gbDetalleCompra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDescuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCodArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,15 +449,15 @@
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nudPrecio;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudCodArticulo;
         private System.Windows.Forms.Label lblCodArticulo;
         private System.Windows.Forms.Button btnBuscarFactura;
         private System.Windows.Forms.Button btnCargarProducto;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCodArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
